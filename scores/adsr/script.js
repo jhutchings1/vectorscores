@@ -478,3 +478,17 @@ VS.WebSocket.stepCallback = scrollCallback;
 VS.WebSocket.connect();
 
 {% include_relative _info.js %}
+
+/**
+ * Basic save function for SVG
+ * TODO
+ * - include stylesheet or inline all styles
+ * - serialize font?
+ */
+function saveSVG() {
+    var svgXML = (new XMLSerializer).serializeToString(score.svg.node());
+    var encoded = encodeURI(svgXML)
+
+    window.open('data:image/svg;utf8,' + encoded);
+    // window.open('data:image/svg+xml;utf8,' + encoded);
+}
